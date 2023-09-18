@@ -21,8 +21,7 @@ class ManagerDb extends SQLite3
 
     function connectDb()
     {
-        $this->open($this->dbPath);
-        $this->dbConnection = new ManagerDb();
+        $this->dbConnection = new SQLite3($this->dbPath);
 
         if (!$this->dbConnection) {
             echo $this->dbConnection->lastErrorMsg();

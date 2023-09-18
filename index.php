@@ -7,13 +7,20 @@
     /**
      * Importo i file di classe
      */
-    include_once("class/module.class.php");
+    include_once(CLASS_PATH . "module.class.php");
+    include_once(CLASS_PATH . "language.class.php");
+    
 
     if(!isset($GET["page"])){
         $nome_modulo = "home";
     } else {
         $nome_modulo= $GET["page"];
     }
+
+    if(!isset($_COOKIE["lang"])){
+        $_COOKIE["lang"]= "ita";
+    }
+
     $Module = new Module($nome_modulo);
 
 ?>
@@ -34,6 +41,6 @@
     ?>  
 </body>
 
-<script src="ts/main.ts"></script>
+<script src="lib/ts/main.ts"></script>
 <script src="<?php echo($Module->checkTsExists());?>"></script>
 </html>
