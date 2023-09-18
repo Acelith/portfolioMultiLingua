@@ -12,3 +12,9 @@ Il database delle lingue si trova in db/language.db è di tipo SQL Lite
 ​	`npm install` 
 
 3. Avviare il server PHP
+
+File .gitignore
+
+File gitignore preso da un'altro repository
+
+[https://github.com/github/gitignore/blob/main/Node.gitignore](https://github.com/github/gitignore/blob/main/Node.gitignore)
