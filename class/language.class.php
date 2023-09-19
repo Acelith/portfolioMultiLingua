@@ -5,14 +5,11 @@ class Language{
 
     static function getKey($key){
         $languageDb = new ManagerDb();
-        $query= "SELECT text FROM key WHERE key= :key and language= :lang";
-        $parArr= array(
-            ":key" => $key,
-            ":lang" => $_COOKIE["lang"]
-        );
+        # Implementare sistema a parametri per Query
+        $query= "SELECT text FROM key WHERE key= '". $key . "' and language= '". $_COOKIE["lang"] . "'";
 
-        $retArr= $languageDb->selectRow($query, $parArr);
+        $retArr= $languageDb->selectRow($query);
 
-        return $retArr[$key];
+        return $retArr["text"];
     }
 } 

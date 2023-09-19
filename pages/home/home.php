@@ -2,4 +2,4 @@
     $language = new Language();
 ?>
 
-<h1><?php $language::getKey("title")?></h1>
+<h1><?php echo $language::getKey("title")?></h1>

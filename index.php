@@ -16,9 +16,8 @@
     } else {
         $nome_modulo= $GET["page"];
     }
-
     if(!isset($_COOKIE["lang"])){
-        $_COOKIE["lang"]= "ita";
+        setcookie("lang", "ita", time() + (86400 * 30), "/");
     }
 
     $Module = new Module($nome_modulo);

@@ -53,24 +53,18 @@ class ManagerDb extends SQLite3
         $this->dbConnection->close();
     }
 
-    function selectRow($query, $parArray = array())
+    function selectRow($query, $parArray = null)
     {
-        if (!is_array($parArray)) {
-            throw new Exception('function selectRow: Not an array! ');
+        $db = new SQLite3($this->dbPath);
+        $ret = $db->prepare($query);
+
+        if(!is_null($parArray)){
+            foreach ($parArray as $key => $value) {
+                $ret->bindValue(':' . $key, $value, SQLITE3_TEXT);
+            }
         }
-        $ret = $this->dbConnection->prepare($query);
+        $returnArray = $ret->execute();
 
-        foreach ($parArray as $key => $value) {
-            $ret->bindValue(':' . $key, $value, SQLITE3_TEXT);
-        }
-
-        $ret->execute();
-        $returnArray = array();
-
-        foreach ($ret as $key => $value) {
-            $returnArray[$key] = $value;
-        }
-
-        return $returnArray;
+        return $returnArray->fetchArray();
     }
 }
