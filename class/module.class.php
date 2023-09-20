@@ -34,9 +34,10 @@
          * Controllo se il file Typescrit esiste, è opzionale
          */
         function checkTsExists(){
-            $abstractPath= $this->module_path . $this->module_name . ".ts";
-            if(file_exists($abstractPath)){
-                return $abstractPath;    
+            $abstractPathTs= $this->module_path . $this->module_name . ".ts";
+            $abstractPathJs= $this->module_path . $this->module_name . ".js";
+            if(file_exists($abstractPathTs) && file_exists($abstractPathJs)){
+                return $abstractPathJs;    
             }            
         }
         /**
