@@ -3,7 +3,7 @@ Portofolio multilingua scritto in PHP
 
 Il database delle lingue si trova in db/language.db è di tipo SQL Lite
 
-### Installazione
+## Installazione
 
 1. Mettere i files nella directory del web server (per intenderci dove si vuole far girare il sito)
 
@@ -13,7 +13,7 @@ Il database delle lingue si trova in db/language.db è di tipo SQL Lite
 
 3. Avviare il server PHP
 
-File .gitignore
+##File .gitignore
 
 File gitignore preso da un'altro repository
 
